@@ -8,22 +8,18 @@ function Recipe() {
   const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState("instructions");
 
-  const fetchDetails = useCallback(async () => {
-    try {
-      const data = await fetch(
-        `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=34a7082429cb45f58e0c500c17bcf963`
-      );
-      const detailData = await data.json();
-      setDetails(detailData);
-      console.log(detailData);
-    } catch (error) {
-      console.error("Error fetching details:", error);
-    }
-  }, [params.name]);
+  const fetchDetails = async () => {
+    const data = await fetch(
+      `https://api.spoonacular.com/recipes/${params.name}/information?apiKey=34a7082429cb45f58e0c500c17bcf963`
+    );
+    const detailData = await data.json();
+    setDetails(detailData);
+    console.log(detailData);
+  };
 
   useEffect(() => {
     fetchDetails();
-  }, [params.name, fetchDetails]);
+  }, [params.name]);
 
   return (
     <DetailWrapper>
