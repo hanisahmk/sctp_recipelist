@@ -13,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Nav>
           <GiKnifeFork></GiKnifeFork>
+          <h3>{process.env.REACT_APP_MESSAGE}</h3>
           <Logo to={"/"}>Recipes</Logo>
         </Nav>
         <Search />
