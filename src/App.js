@@ -19,7 +19,8 @@ function App() {
         <Search />
         <Category />
         <Pages />
-      </BrowserRouter>
+        <footer>Current Env: {process.env.NODE_ENV}</footer>
+      </BrowserRouter>s
     </div>
   );
 }
